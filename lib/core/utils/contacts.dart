@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:chattin/core/utils/requests.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 
@@ -7,14 +8,16 @@ class Contacts {
     try {
       final status = await Requests.requestContactsPermission();
       if (status == PermissionStatus.granted) {
-        List<Contact> contacts = await FlutterContacts.getAll();
-
+        List<Contact> contacts = await FlutterContacts.getAll(
+          properties: ContactProperties.allProperties,
+        );
         for (final contact in contacts) {
-          String number = contact.phones.first.number.replaceAll(" ", "");
+          // debugPrintAll(contact);
+          String number = contact.phones.first.normalizedNumber ?? "";
           if (number.length > 10) {
             number = number.substring(number.length - 10);
           }
-          if (number == selfNumber) {
+          if (number == selfNumber || number == "") {
             continue;
           } else {
             phoneNumbers.add(number);
@@ -23,6 +26,7 @@ class Contacts {
       }
       return phoneNumbers;
     } catch (e) {
+      log(e.toString());
       return [];
     }
   }

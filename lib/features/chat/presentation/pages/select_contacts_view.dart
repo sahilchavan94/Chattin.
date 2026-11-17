@@ -44,7 +44,7 @@ class _SelectContactsViewState extends State<SelectContactsView> {
 
   Future<void> _getContactsFromPhone({bool isRefreshed = false}) async {
     final permission = await Requests.requestContactsPermission();
-    if (permission == PermissionStatus.granted) {
+    if (permission != PermissionStatus.granted) {
       showToast(
         content: ToastMessages.contactsAccessFailure,
         description: ToastMessages.contactsAccessFailureDesc,
@@ -57,6 +57,7 @@ class _SelectContactsViewState extends State<SelectContactsView> {
     List<String> contactsList = await Contacts.getContacts(
       selfNumber: phoneNumber,
     );
+    
     context.read<ContactsCubit>().getAppContacts(
           contactsList,
           isRefreshed: isRefreshed,
