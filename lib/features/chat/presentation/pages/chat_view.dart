@@ -362,7 +362,9 @@ class _ChatViewState extends State<ChatView> {
                               iconOnLeftSwipe: Icons.more_vert_sharp,
                               onRightSwipe: (details) {
                                 if (messages[index].messageType ==
-                                    MessageType.deleted) return;
+                                    MessageType.deleted) {
+                                      return;
+                                    }
                                 replyMessageProvider.setReplyParams(
                                   type: messages[index].messageType,
                                   message: messages[index].text,

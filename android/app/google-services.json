@@ -14,14 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "320031012975-35avnqq0ug81ddatos648h3eckhkq873.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.chattin",
-            "certificate_hash": "44bf4687977b6dc2d1d2938316b0bbddaf080e70"
-          }
-        },
-        {
           "client_id": "320031012975-6sdut6dpifbbhroh5psf53t20pk3d27i.apps.googleusercontent.com",
           "client_type": 3
         }

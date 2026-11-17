@@ -654,17 +654,12 @@ class ChatRemoteDataSourceImpl implements ChatRemoteDataSource {
     required String phoneNumber,
   }) async {
     try {
-      //not able to see newly added contact in the contact app of user's device
-      //but instead in the phone app
-      final newContact = Contact()
-        ..name = Name(
-          first: displayName,
-        )
-        ..phones = [
-          Phone("$phoneCode $phoneNumber"),
-        ];
-
-      await newContact.insert();
+      String phoneNo = "$phoneCode $phoneNumber";
+      Contact contact = Contact(
+        name: Name(first: displayName),
+        phones: <Phone>[Phone(number: phoneNo)],
+      );
+      await FlutterContacts.create(contact);
       return ToastMessages.newContactAdded;
     } catch (e) {
       throw ServerException(error: e.toString());

@@ -19,6 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:go_router/go_router.dart';
 import 'package:toastification/toastification.dart';
 
@@ -41,9 +42,9 @@ class _SelectContactsViewState extends State<SelectContactsView> {
     super.initState();
   }
 
-  _getContactsFromPhone({bool isRefreshed = false}) async {
+  Future<void> _getContactsFromPhone({bool isRefreshed = false}) async {
     final permission = await Requests.requestContactsPermission();
-    if (!permission) {
+    if (permission == PermissionStatus.granted) {
       showToast(
         content: ToastMessages.contactsAccessFailure,
         description: ToastMessages.contactsAccessFailureDesc,
