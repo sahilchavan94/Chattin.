@@ -57,7 +57,6 @@ class _SelectContactsViewState extends State<SelectContactsView> {
     List<String> contactsList = await Contacts.getContacts(
       selfNumber: phoneNumber,
     );
-    
     context.read<ContactsCubit>().getAppContacts(
           contactsList,
           isRefreshed: isRefreshed,

@@ -119,7 +119,7 @@ class _ChatContactInformationViewState
                     ),
                   ),
                   Text(
-                    "+${userData.phoneCode!}${userData.phoneNumber!}",
+                    "+${userData.phoneCode ?? ""}${userData.phoneNumber!}",
                     style:
                         AppTheme.darkThemeData.textTheme.displaySmall!.copyWith(
                       color: AppPallete.whiteColor,

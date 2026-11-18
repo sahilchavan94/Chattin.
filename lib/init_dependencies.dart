@@ -35,7 +35,7 @@ import 'package:chattin/features/chat/domain/usecases/set_message_status.dart';
 import 'package:chattin/features/chat/presentation/cubits/chat_cubit/chat_cubit.dart';
 import 'package:chattin/features/chat/presentation/cubits/contacts_cubit/contacts_cubit.dart';
 import 'package:chattin/features/profile/data/datasources/profile_remote_datasource.dart';
-import 'package:chattin/features/profile/data/repsotories/profile_repositoy_impl.dart';
+import 'package:chattin/features/profile/data/repositories/profile_repositoy_impl.dart';
 import 'package:chattin/features/profile/domain/repositories/profile_repository.dart';
 import 'package:chattin/features/profile/domain/usecases/get_profile.dart';
 import 'package:chattin/features/profile/domain/usecases/set_profile.dart';

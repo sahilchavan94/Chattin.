@@ -12,8 +12,7 @@ class Contacts {
           properties: ContactProperties.allProperties,
         );
         for (final contact in contacts) {
-          // debugPrintAll(contact);
-          String number = contact.phones.first.normalizedNumber ?? "";
+          String number = contact.phones.first.number;
           if (number.length > 10) {
             number = number.substring(number.length - 10);
           }

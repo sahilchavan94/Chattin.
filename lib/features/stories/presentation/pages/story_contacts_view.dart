@@ -47,7 +47,7 @@ class _StoryContactsViewState extends State<StoryContactsView> {
 
   Future<void> _getContactsFromPhone({bool isRefreshed = false}) async {
     final permission = await Requests.requestContactsPermission();
-    if (permission == PermissionStatus.granted) {
+    if (permission != PermissionStatus.granted) {
       showToast(
         content: ToastMessages.contactsAccessFailure,
         description: ToastMessages.contactsAccessFailureDesc,
